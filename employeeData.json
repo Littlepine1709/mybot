@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Miljan Radovic",
+    "rank": "Foreman",
+    "branch": "LITTLEPINE V1",
+    "blacklisted": false
+  },
+  {
+    "name": "Hady Shadewa",
+    "rank": "Junior Technician",
+    "branch": "LITTLEPINE V1",
+    "blacklisted": false
+  },
+  {
+    "name": "Davin Alves",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V1",
+    "blacklisted": false
+  },
+  {
+    "name": "Robert Jackson",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V1",
+    "blacklisted": false
+  },
+  {
+    "name": "Nathan Paulo",
+    "rank": "Junior Technician",
+    "branch": "LITTLEPINE V2",
+    "blacklisted": false
+  },
+  {
+    "name": "Jimmy McCartney",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V2",
+    "blacklisted": false
+  },
+  {
+    "name": "Rez Powel",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V2",
+    "blacklisted": false
+  },
+  {
+    "name": "Luthfi Hasan",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V3",
+    "blacklisted": false
+  },
+  {
+    "name": "Nollan Anderson",
+    "rank": "Trainee",
+    "branch": "LITTLEPINE V3",
+    "blacklisted": false
+  }
+]
