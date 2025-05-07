@@ -2,6 +2,9 @@ const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js'
 const fs = require('fs');
 require('dotenv').config();
 
+// Konstanta ID user yang dimimic
+const TARGET_USER_ID = '476959338087317504';
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -25,8 +28,28 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', async (message) => {
-  if (!message.content.startsWith('.')) return;
   if (message.author.bot) return;
+
+  // Mimic otomatis
+  const mimicCommand = client.commands.get('mimic');
+  if (
+    mimicCommand?.isMimicActive &&
+    mimicCommand.isMimicActive() &&
+    message.author.id === TARGET_USER_ID
+  ) {
+    try {
+      const content = message.content || '*[pesan kosong]*';
+      await message.delete();
+      await message.channel.send(content);
+      return;
+    } catch (err) {
+      console.error('Gagal mimic pesan:', err);
+      return;
+    }
+  }
+
+  // Command berbasis prefix
+  if (!message.content.startsWith('.')) return;
 
   const [cmd, ...args] = message.content.slice(1).trim().split(/\s+/);
   const command = client.commands.get(cmd);
