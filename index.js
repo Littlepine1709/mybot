@@ -1,10 +1,20 @@
 const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js');
 const fs = require('fs');
 require('dotenv').config();
+const express = require('express');
 
-// Konstanta ID user yang dimimic
-const TARGET_USER_ID = '476959338087317504';
+const app = express();
+const port = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+  res.send('Bot is running!');
+});
+
+app.listen(port, () => {
+  console.log(`Web server aktif di http://localhost:${port}`);
+});
+
+// Setup Discord Client
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -16,6 +26,8 @@ const client = new Client({
 });
 
 client.commands = new Collection();
+
+// Baca semua file command dari folder ./commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -27,31 +39,11 @@ client.once('ready', () => {
   console.log('Marmut sedang online');
 });
 
+// Listener untuk perintah berbasis prefix (misal: .ping)
 client.on('messageCreate', async (message) => {
-  if (message.author.bot) return;
+  if (!message.content.startsWith('.') || message.author.bot) return;
 
-  // Mimic otomatis
-  const mimicCommand = client.commands.get('mimic');
-  if (
-    mimicCommand?.isMimicActive &&
-    mimicCommand.isMimicActive() &&
-    message.author.id === TARGET_USER_ID
-  ) {
-    try {
-      const content = message.content || '*[pesan kosong]*';
-      await message.delete();
-      await message.channel.send(content);
-      return;
-    } catch (err) {
-      console.error('Gagal mimic pesan:', err);
-      return;
-    }
-  }
-
-  // Command berbasis prefix
-  if (!message.content.startsWith('.')) return;
-
-  const [cmd, ...args] = message.content.slice(1).trim().split(/\s+/);
+  const [cmd, ...args] = message.content.slice(1).trim().split(/ +/);
   const command = client.commands.get(cmd);
 
   if (command) {
@@ -64,6 +56,7 @@ client.on('messageCreate', async (message) => {
   }
 });
 
+// Listener untuk tombol
 client.on('interactionCreate', async (interaction) => {
   if (!interaction.isButton()) return;
 

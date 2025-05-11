@@ -6,14 +6,22 @@
   "scripts": {
     "start": "node index.js"
   },
-  "author": "Kikukikuk",
+  "author": "Littlepine1709",
   "license": "Apache",
   "dependencies": {
-    "express": "^4.17.1",
     "discord.js": "^14.0.0",
-    "dotenv": "^16.0.0"
+    "dotenv": "^16.0.0",
+    "express": "^4.21.2"
   },
   "engines": {
-    "node": "23.x"
-  }
+    "node": ">=18.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Littlepine1709/marmut"
+  },
+  "bugs": {
+    "url": "https://github.com/Littlepine1709/marmut/issues"
+  },
+  "homepage": "https://github.com/Littlepine1709/marmut"
 }
