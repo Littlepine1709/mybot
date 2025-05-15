@@ -4,7 +4,7 @@
   "description": "Littlepine",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "bash start.sh"
   },
   "author": "Littlepine1709",
   "license": "Apache",

@@ -1,1 +1,1 @@
-web: node index.js
+run: bash start.sh
