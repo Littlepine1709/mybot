@@ -1,8 +1,9 @@
 {
-  "name": "marmut-bot",
+  "name": "marmut",
   "version": "1.0.0",
   "description": "Littlepine",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "bash start.sh"
   },
@@ -11,7 +12,8 @@
   "dependencies": {
     "discord.js": "^14.0.0",
     "dotenv": "^16.0.0",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "googleapis": "^148.0.0"
   },
   "engines": {
     "node": ">=14.x"
